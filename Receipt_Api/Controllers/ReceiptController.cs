@@ -50,5 +50,14 @@ namespace Receipt_Api.Controllers
             return Ok(test.Entity);
 
         }
+
+        [Route("delete/receipts")]
+        [HttpDelete]
+        public IActionResult DeleteAllReceipts()
+        {
+            var test = _receiptService.DeleteAll();
+            return Ok(test.Entity);
+
+        }
     }
 }

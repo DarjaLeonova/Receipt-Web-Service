@@ -41,5 +41,15 @@ namespace RentalApi.Services
             _context.SaveChanges();
             return new ServiceResult(true).EmptyEntity();
         }
+
+        public ServiceResult DeleteAll()
+        {
+            var entity = _context.Receipts
+                .Include(x => x.Items);
+            _context.Receipts.RemoveRange(entity);
+           // _context.Items.RemoveRange();
+            _context.SaveChanges();
+            return new ServiceResult(true).EmptyEntity();
+        }
     }
 }

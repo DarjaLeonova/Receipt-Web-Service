@@ -12,5 +12,6 @@ namespace ReceiptApi.Core.Services
         ServiceResult GetReceiptById(int id);
         ServiceResult GetAllReceipts();
         ServiceResult DeleteById(int id);
+        ServiceResult DeleteAll();
     }
 }

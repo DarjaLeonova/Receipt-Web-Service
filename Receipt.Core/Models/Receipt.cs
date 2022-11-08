@@ -15,5 +15,7 @@ namespace ReceiptApi.Core.Models
         {
             Items = new List<Item>();
         }
+
+       
     }
 }

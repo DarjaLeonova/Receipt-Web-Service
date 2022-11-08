@@ -35,8 +35,9 @@ namespace RentalApi.Services
 
         public ServiceResult DeleteById(int id)
         {
-            var entity = GetReceiptById(id);
-            _context.Receipts.Remove((Receipt)entity.Entity);
+            var receiptToRemove = _context.Items.Where(e => e.ReceiptId == id);
+            _context.Items.RemoveRange(receiptToRemove);
+            _context.Receipts.Remove((Receipt)GetReceiptById(id).Entity);
             _context.SaveChanges();
             return new ServiceResult(true).EmptyEntity();
         }

@@ -34,7 +34,7 @@ namespace ReceiptApi.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ReceiptId")
+                    b.Property<int>("ReceiptId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -64,7 +64,9 @@ namespace ReceiptApi.Data.Migrations
                 {
                     b.HasOne("ReceiptApi.Core.Models.Receipt", null)
                         .WithMany("Items")
-                        .HasForeignKey("ReceiptId");
+                        .HasForeignKey("ReceiptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ReceiptApi.Core.Models.Receipt", b =>

@@ -45,8 +45,9 @@ namespace Receipt_Api.Controllers
         [HttpDelete]
         public IActionResult DeleteReceipt(int id)
         {
-            var entity = _receiptService.DeleteById(id);
-            return Ok(entity.Entity);
+
+            var test = _receiptService.DeleteById(id);
+            return Ok(test.Entity);
 
         }
     }

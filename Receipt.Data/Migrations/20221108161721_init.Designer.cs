@@ -12,8 +12,8 @@ using ReceiptApi.Data.Data;
 namespace ReceiptApi.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221104190902_AddReceiptToDb")]
-    partial class AddReceiptToDb
+    [Migration("20221108161721_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,7 +36,7 @@ namespace ReceiptApi.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ReceiptId")
+                    b.Property<int>("ReceiptId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -66,7 +66,9 @@ namespace ReceiptApi.Data.Migrations
                 {
                     b.HasOne("ReceiptApi.Core.Models.Receipt", null)
                         .WithMany("Items")
-                        .HasForeignKey("ReceiptId");
+                        .HasForeignKey("ReceiptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ReceiptApi.Core.Models.Receipt", b =>

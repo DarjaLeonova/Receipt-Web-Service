@@ -21,5 +21,14 @@ namespace ReceiptApi.Data.Data
         {
             return base.SaveChangesAsync();
         }
+
+     /*   protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<Receipt>()
+                .HasMany(e => e.Items)
+                .WithOne()
+        }*/
+
     }
 }

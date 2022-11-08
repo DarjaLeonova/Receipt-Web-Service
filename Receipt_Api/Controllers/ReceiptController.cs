@@ -38,16 +38,15 @@ namespace Receipt_Api.Controllers
         public IActionResult GetAllReceipts()
         {
             var receipts = _receiptService.GetAllReceipts();
-            return Ok(receipts.Entity);
+            return Ok(receipts.Receipts);
         }
 
         [Route("delete/receipt/{id}")]
         [HttpDelete]
         public IActionResult DeleteReceipt(int id)
         {
-            var entity = _receiptService.GetReceiptById(id);
-            //_entityService.Delete();
-            return Ok(receipt.Entity);
+            var entity = _receiptService.DeleteById(id);
+            return Ok(entity.Entity);
 
         }
     }

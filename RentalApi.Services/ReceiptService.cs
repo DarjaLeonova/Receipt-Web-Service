@@ -29,16 +29,16 @@ namespace RentalApi.Services
         {
             var entity = _context.Receipts
                 .Include(x => x.Items).ToList();
-            return new ServiceResult(true).SetEntity(entity);
+            return new ServiceResult(true).SetEntities(entity); 
+            
         }
 
         public ServiceResult DeleteById(int id)
         {
             var entity = GetReceiptById(id);
-            base.Delete(entity.Entity);
-            _context.Receipts.Remove(entity.Entity);
+            _context.Receipts.Remove((Receipt)entity.Entity);
             _context.SaveChanges();
-            return new ServiceResult(true).SetEntity(entity);
+            return new ServiceResult(true).EmptyEntity();
         }
     }
 }

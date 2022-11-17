@@ -1,11 +1,4 @@
-﻿using ReceiptApi.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReceiptApi.Core.Services
+﻿namespace ReceiptApi.Core.Services
 {
     public interface IReceiptService
     {
@@ -13,5 +6,6 @@ namespace ReceiptApi.Core.Services
         ServiceResult GetAllReceipts();
         ServiceResult DeleteById(int id);
         ServiceResult DeleteAll();
+        ServiceResult FindReceipts(DateTime? startDate, DateTime? endDate, string? productName);
     }
 }

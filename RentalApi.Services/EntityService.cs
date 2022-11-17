@@ -6,9 +6,7 @@ namespace RentalApi.Services
 {
     public class EntityService<T> : DbService, IEntityService<T> where T : Entity
     {
-        public EntityService(IApplicationDbContext context) : base(context)
-        {
-        }
+        public EntityService(IApplicationDbContext context) : base(context) { }
 
         public ServiceResult Create(T entity)
         {

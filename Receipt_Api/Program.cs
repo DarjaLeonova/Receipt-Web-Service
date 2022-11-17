@@ -1,13 +1,10 @@
 using ReceiptApi.Data.Data;
-
 using Microsoft.EntityFrameworkCore;
 using RentalApi.Services;
 using ReceiptApi.Core.Services;
 using ReceiptApi.Core.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -20,6 +17,7 @@ builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 builder.Services.AddScoped<IReceiptService, ReceiptService>();
 builder.Services.AddScoped<IDbService, DbService>();
 builder.Services.AddScoped<IEntityService<Receipt>, EntityService<Receipt>>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

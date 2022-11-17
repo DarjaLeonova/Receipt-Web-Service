@@ -2,11 +2,6 @@
 using ReceiptApi.Core.Models;
 using ReceiptApi.Core.Services;
 using ReceiptApi.Data.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentalApi.Services
 {

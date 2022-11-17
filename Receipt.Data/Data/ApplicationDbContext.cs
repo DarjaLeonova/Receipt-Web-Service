@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ReceiptApi.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReceiptApi.Data.Data
 {
@@ -12,23 +7,11 @@ namespace ReceiptApi.Data.Data
     {
         public DbSet<Receipt> Receipts { get; set; }
         public DbSet<Item> Items { get; set; }
-        public ApplicationDbContext(DbContextOptions options) : base(options)
-        {
-
-        }
+        public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
         public Task<int> SaveChangesAsync()
         {
             return base.SaveChangesAsync();
         }
-
-     /*   protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .Entity<Receipt>()
-                .HasMany(e => e.Items)
-                .WithOne()
-        }*/
-
     }
 }

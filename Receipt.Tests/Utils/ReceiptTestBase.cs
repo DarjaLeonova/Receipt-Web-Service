@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ReceiptApi.Data.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReceiptApi.Tests.Utils
 {
@@ -21,13 +16,11 @@ namespace ReceiptApi.Tests.Utils
             _context = new ApplicationDbContext(options);
 
             _context.Database.EnsureCreated();
-
         }
 
         public void Dispose()
         {
             _context.Database.EnsureDeleted();
-
             _context.Dispose();
         }
     }

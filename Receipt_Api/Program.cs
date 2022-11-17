@@ -1,11 +1,22 @@
-var builder = WebApplication.CreateBuilder(args);
+using ReceiptApi.Data.Data;
+using Microsoft.EntityFrameworkCore;
+using RentalApi.Services;
+using ReceiptApi.Core.Services;
+using ReceiptApi.Core.Models;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection")
+                ));
+builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+builder.Services.AddScoped<IReceiptService, ReceiptService>();
+builder.Services.AddScoped<IDbService, DbService>();
+builder.Services.AddScoped<IEntityService<Receipt>, EntityService<Receipt>>();
 
 var app = builder.Build();
 
